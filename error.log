@@ -1,0 +1,68 @@
+
+[2020-01-27 21:39:38] Traceback (most recent call last):
+  File "main.py", line 17, in <module>
+    run_game()
+  File "main.py", line 12, in run_game
+    keybindings=True,
+  File "/home/baribal/wecs/wecs/boilerplate.py", line 66, in run_game
+    for sort, system_type in enumerate(game.system_types):
+AttributeError: module 'game' has no attribute 'system_types'
+
+
+[2020-01-27 22:20:32] Traceback (most recent call last):
+  File "main.py", line 17, in <module>
+    run_game()
+  File "main.py", line 12, in run_game
+    keybindings=True,
+  File "/home/baribal/wecs/wecs/boilerplate.py", line 65, in run_game
+    import game
+  File "/home/baribal/wecs_null_project/game.py", line 5, in <module>
+    wecs.cefconsole.UpdateWecsSubconsole,
+AttributeError: module 'wecs' has no attribute 'cefconsole'
+
+
+[2020-01-27 23:44:32] Traceback (most recent call last):
+  File "main.py", line 18, in <module>
+    run_game()
+  File "main.py", line 13, in run_game
+    keybindings=True,
+  File "/home/baribal/wecs/wecs/boilerplate.py", line 65, in run_game
+    import game
+  File "/home/baribal/wecs_null_project/game.py", line 2, in <module>
+    from wecs import debug
+ImportError: cannot import name 'debug' from 'wecs' (/home/baribal/wecs/wecs/__init__.py)
+
+
+[2020-01-27 23:46:17] Traceback (most recent call last):
+  File "/home/baribal/wecs/wecs/panda3d/core.py", line 29, in run_system
+    base.ecs_world.update_system(system)
+  File "/home/baribal/wecs/wecs/core.py", line 203, in update_system
+    system.update(entities_by_filter)
+  File "/home/baribal/wecs/wecs/panda3d/debug.py", line 16, in update
+    pdb.set_trace()
+  File "/usr/lib/python3.7/bdb.py", line 92, in trace_dispatch
+    return self.dispatch_return(frame, arg)
+  File "/usr/lib/python3.7/bdb.py", line 154, in dispatch_return
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+
+[2020-01-28 00:01:24] Traceback (most recent call last):
+  File "/home/baribal/wecs/wecs/panda3d/core.py", line 29, in run_system
+    base.ecs_world.update_system(system)
+  File "/home/baribal/wecs/wecs/core.py", line 203, in update_system
+    system.update(entities_by_filter)
+  File "/home/baribal/wecs/wecs/panda3d/debug.py", line 19, in update
+    PStatClient.connect()
+NameError: name 'PStatClient' is not defined
+
+
+[2020-02-06 01:12:50] Traceback (most recent call last):
+  File "main.py", line 17, in <module>
+    run_game()
+  File "main.py", line 12, in run_game
+    keybindings=True,
+  File "/home/baribal/wecs/wecs/boilerplate.py", line 73, in run_game
+    for sort, system_type in enumerate(game.system_types):
+AttributeError: module 'game' has no attribute 'system_types'
+
