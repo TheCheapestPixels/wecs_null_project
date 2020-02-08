@@ -39,7 +39,11 @@ setup(
                 '**/*.html',
             ],
             'include_modules': {
-                '*': 'keybindings',
+                '*': [
+                    'keybindings',
+                    'cefconsole',
+                    'urllib',  # Maybe hidden import in cefpython
+                ],
             },
             'gui_apps': {
                 'WECS null game': 'main.py',
