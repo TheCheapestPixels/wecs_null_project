@@ -41,8 +41,8 @@ setup(
             'include_modules': {
                 '*': [
                     'keybindings',
-                    'cefconsole',
-                    'urllib',  # Maybe hidden import in cefpython
+                    # 'cefconsole',
+                    'urllib.request',  # Maybe hidden import in cefpython
                 ],
             },
             'gui_apps': {
