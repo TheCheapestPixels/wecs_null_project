@@ -7,10 +7,11 @@ from wecs import boilerplate
 
 def run_game():
     boilerplate.run_game(
-        module_name='game',
-        console=True,
-        # open_console=True,
-        keybindings=True,
+        module_name='game',     # Name of module to use to set up game
+        keybindings=True,       # panda3d-keybindings
+        debug_keys=True,        # Esc/F9-12 via accept()
+        simplepbr=False,        # calls simplepbr.init(simplepbr_kwargs)
+        simplepbr_kwargs=None,  # default: {}
     )
 
 

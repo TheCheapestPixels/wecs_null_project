@@ -8,24 +8,26 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 setup(
-    name='wecs-null-project',
+    name='wecs-null-project',  # STARTPROJECT: Package name
     version='0.0.1a',
-    description='A boilerplate for WECS-based games',
-    url='https://github.com/TheCheapestPixels/wecs-null-project',
-    author='TheCheapestPixels',
-    author_email='TheCheapestPixels@gmail.com',
+    description='',   # STARTPROJECT: Short package description
+    url='',  # STARTPROJECT
+    author='',  # STARTPROJECT
+    author_email='',  # STARTPROJECT
     classifiers=[
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'Programming Language :: Python :: 3.7',
+        'Development Status :: 3 - Alpha',  # STARTPROJECT
     ],
-    keywords='wecs',
+    keywords='',  # STARTPROJECT: Package keywords
     packages=find_packages(exclude=['tests']),
-    python_requires='>=3.7, <3.8',
-    install_requires=['wecs', 'panda3d', 'panda3d-cefconsole', 'panda3d-keybindings'],
+    python_requires='>=3.7, <4',
+    install_requires=[
+        'wecs',
+        'panda3d',
+        'panda3d-keybindings',
+    ],
     entry_points={
         'console_scripts': [
-            'wecs_null_game=main:run_game',
+            'game_name=main:run_game',  # STARTPROJECT: Change game_name
         ],
     },
     # Deployment
@@ -36,25 +38,22 @@ setup(
                 '**/*.jpg',
                 '**/*.bam',
                 '**/*.toml',
-                '**/*.html',
             ],
             'include_modules': {
                 '*': [
                     'keybindings',
-                    # 'cefconsole',
-                    'urllib.request',  # Maybe hidden import in cefpython
                 ],
             },
             'gui_apps': {
-                'WECS null game': 'main.py',
+                'default_name': 'main.py',  # STARTPROJECT
             },
-            'log_filename': '$USER_APPDATA/wecs_null_game/output.log',
+            'log_filename': '$USER_APPDATA/default_name/output.log',  # STARTPROJECT
             'log_append': False,
             'plugins': [
                 'pandagl',
                 'p3openal_audio',
             ],
-            'platforms': [
+            'platforms': [  # STARTPROJECT: Change selection
                 'manylinux1_x86_64',
                 #'macosx_10_6_x86_64',
                 #'win_amd64',
