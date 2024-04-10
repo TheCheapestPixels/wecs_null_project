@@ -1,20 +1,11 @@
 wecs_null_project
 =================
 
-You want to develop a game, using Python, Panda3D, and WECS? (If you
-don't know one or more of those, there's a section on them after this
-one.) You don't want to write all the stuff that every game has to have?
-You want to get working on what makes your game *your* game? **Now**?
-Well, then do!
+You want to develop a game, using Python, Panda3D, and WECS? You don't
+want to write all the stuff that every game has to have? You want to get
+working on what makes your game *your* game? **Now**?
 
-1. Fork this project and rename it.
-2. Run `main.py` to see what you've got right now (see below).
-3. Run `python setup.py bdist_apps` to build distributable packages, and
-   test them.
-   CAVEAT: Still buggy. Sorry.
-   NOTE: You can run `python setup.py build_apps` to build your project
-   without packaging it. This is faster, and allows you check whether a
-   bug occurs due to building alone, or due to packaging.
+Well, then do!
 
 
 But I don't know...
@@ -89,41 +80,71 @@ it is easy to combine separately developed game mechanics in the the
 same game. That also means that WECS can contain a lot of pre-made
 `System`s and `Component`s that you can just plug into your game.
 
-You can find further information at
-[GitHub](https://github.com/TheCheapestPixels/wecs)
+Further information: [GitHub](https://github.com/TheCheapestPixels/wecs)
 
 
 ### panda3d-stageflow
 
-FIXME
+You know how games have splash screens, an introductory cutscene, the
+main menu, the main game loop, more cutscenes, ingame menus, settings
+menus, keybindings menus, screens for saving games, loading games, and
+so on and on, and how it is all a chore to keep it all manageable?
+
+`panda3d-stageflow` does just that. The game moves from stage to stage,
+which are the major states of the game (main menu, main loop), and the
+game is always in exactly one of them. There are also substages, which
+can be added as a stack on top of the stages, and which usually
+structure menus.
+
+Further information: [GitHub](https://github.com/TheCheapestPixels/panda3d-stageflow)
 
 
 ### panda3d-keybindings
 
-FIXME
+Panda3D... has systems to work with user inputs. They are quite a long
+way away from what you are expecting from a game, namely a keybindings
+menu and no further worries. `panda3d-keybindings` is an ongoing effort
+to close the gap. Its current state is that there is
+`keybindings.config`, a structured file file for defining contexts in
+which keybindings can exist, what kind of bindings they are (button,
+triggers, 3D axis, etc.) and what their names are, and to which input
+methods they map. As you can see in the file, only the debug bindings
+are currently present.
+
+Further information: [GitHub](https://github.com/TheCheapestPixels/panda3d-keybindings)
 
 
 Let's get going!
 ----------------
 
-Everything good so far? Then you're ready for development.
+Now that you know the tech stack with which we will be working, let's
+get the show on the road!
 
-1. Replace this `README.md` with something more appropriate.
-2. grep for `STARTPROJECT` (or use whatever other way to find that
-   word). It marks places where game-specific edits have to be made.
 
-With the paperwork out of the way, you should now have a game with...
+### Setting up the development environment
+
+1. Copy this project's files.
+2. Install its requirements: `pip install -r requirements.txt`
+3. Run `main.py`.
+
+You should be treated to the Panda3D splash screen, after which you will
+unceremoniously be dropped into a blank blue screen. You can use
+`escape` to skip the former and exit the game while in the latter.
+
+
+### Overview of the present state
+
+Everything good so far? Then you're ready for development. You should
+now have a game with...
 
 * a basic stage flow that...
-  * by defaults resizes the window to borderless fullscreen, shows a
-    Panda3D splash, and starts the main game loop,
+  * is set up in `game/__init__.py`
   * also has an entry point for development which skips the splashes,
     and is used by starting the game with
     `python main.py --stage debug`,
-  * is set up in `game/__init__.py`
 * a `WECS` world at `base.ecs_world`
 * the `panda3d-keybindings` device listener, configured in
-  `keybindings.toml`,
+  `keybindings.config`,
 * the `MainGameLoop` stage, which...
   * has one `System`, `wecs.panda3d.debug.DebugTools`, providing debug
     keys that by default are mapped to...
@@ -139,6 +160,27 @@ ship with WECS, and now you *really* should be ready to implement your
 own mechanics.
 CAVEAT: I'm not happy at all with WECS' standard library of generic
 mechanics yet...
+
+
+### Deployment
+
+As fun as game development for the sake of it can be, usually it is also
+for the sake of shipping a game. To do that, we again have to do a bunch
+of paperwork first:
+
+1. Go through `setup.py` and change the lines marked with the comment
+   `# STARTPROJECT` to reflect your game.
+1. Rewrite this README.md from scratch, and add your preferred licensing
+   conditions to LICENSE.
+1. Run `python setup.py bdist_apps` to build distributable packages, and
+   test them.
+   CAVEAT: Still buggy. Sorry.
+   NOTE: You can run `python setup.py build_apps` to build your project
+   without packaging it. This is faster, and allows you check whether a
+   bug occurs due to building alone, or due to packaging.
+
+
+### Done!
 
 That's it already: Plug together all the things that you have and need,
 then write the ones that you don't have, but need. Develop, test, build,
@@ -202,3 +244,20 @@ time, meaning that it (or rather, many of the projects it uses) doesn't
 generic game a matter of five minutes. What is there so far however
 demonstrates that with enough development effort, this is a perfectly
 achievable goal.
+
+
+Thanks
+------
+
+Thank you to...
+* Entikan, for being an all-around great guy and motivator.
+* Simulan, for critical help with getting deployment going.
+* rdb and all Panda3D committers, for making Panda3D not just survive,
+  but thrive.
+
+
+TODO
+----
+
+FIXME: Why do I rely on a local argparser that does not even know about
+data being passed to it?

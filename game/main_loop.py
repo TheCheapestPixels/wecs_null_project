@@ -49,6 +49,6 @@ class MainGameStage(WECSStage):
             Data that was passed to :class:`Stage.exit`.
 
         :returns:
-            Data to be passed on o the next stage
+            Data to be passed on to the next stage
         """
         return data
