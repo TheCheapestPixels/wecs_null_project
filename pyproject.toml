@@ -1,0 +1,36 @@
+# STARTPROJECT: This whole file is relevant. Godspeed.
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools >= 61",
+    "wheel",
+]
+
+[project]
+name = "game_name"
+description = "A game created with wecs_null_project"
+version = "0.1a"
+authors = [
+    { name = "Your name here", email = "Your email address here" }
+]
+requires-python = ">= 3.8"
+dependencies = [
+    "panda3d",
+    "panda3d-logos",
+    "panda3d-keybindings",
+    "panda3d-stageflow",
+    "wecs",
+]
+
+[project.optional-dependencies]
+dev = [
+    "tox",
+    "pre-commit",
+    "bump2version"
+]
+
+[tool.pman.build_apps]
+plugins = [
+    "pandagl",
+    "p3openal_audio",
+]
