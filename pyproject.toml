@@ -11,7 +11,7 @@ name = "game_name"
 description = "A game created with wecs_null_project"
 version = "0.1a"
 authors = [
-    { name = "Your name here", email = "Your email address here" }
+    { name = "Your name here", email = "your@email.here" }
 ]
 requires-python = ">= 3.8"
 dependencies = [
@@ -34,3 +34,8 @@ plugins = [
     "pandagl",
     "p3openal_audio",
 ]
+include_patterns = ["keybindings.config"]
+platforms = ["manylinux1_x86_64"]
+
+[tool.setuptools.packages.find]
+include = ["game*"]
