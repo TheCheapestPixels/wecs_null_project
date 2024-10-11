@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 requires = [
     "setuptools >= 61",
     "wheel",
+    "panda3d-pman",
 ]
 
 [project]
@@ -16,6 +17,7 @@ authors = [
 requires-python = ">= 3.8"
 dependencies = [
     "panda3d",
+    "panda3d-pman",
     "panda3d-logos",
     "panda3d-keybindings",
     "panda3d-stageflow",
@@ -36,6 +38,3 @@ plugins = [
 ]
 include_patterns = ["keybindings.config"]
 platforms = ["manylinux1_x86_64"]
-
-[tool.setuptools.packages.find]
-include = ["game*"]
